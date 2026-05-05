@@ -9,6 +9,8 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ResidentialSection from "@/components/ResidentialSection";
 import CommercialSection from "@/components/CommercialSection";
+import CustomFurnitureSection from "@/components/CustomFurnitureSection";
+import ContactSection from "@/components/ContactSection";
 
 
 export default function Home() {
@@ -28,7 +30,9 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ResidentialSection />
-        <CommercialSection/>
+        <CommercialSection />
+        <CustomFurnitureSection />
+        <ContactSection />
       </main>
     </>
   );
