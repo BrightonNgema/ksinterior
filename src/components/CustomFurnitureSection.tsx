@@ -1,25 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /* ─── Image Imports ───────────────────────────────────────────────── */
 
-// Upholstered seating
 import sofa1 from "@/assets/furniture/IMG_0957.jpg";
 import sofa2 from "@/assets/furniture/IMG_5601.jpg";
 import sofa3 from "@/assets/furniture/IMG_5614.jpg";
-
-// Statement chairs & poufs
 import chair1 from "@/assets/furniture/IMG_0971.jpg";
 import chair2 from "@/assets/furniture/IMG_0960.jpg";
 import chair3 from "@/assets/furniture/IMG_5603.jpg";
-
-// Headboards, side tables & TV units
 import custom1 from "@/assets/furniture/IMG_0862.jpg";
 import custom2 from "@/assets/furniture/IMG_0867.jpg";
 import custom3 from "@/assets/furniture/IMG_0874.jpg";
@@ -50,67 +40,13 @@ const customPieces = [
 /* ─── Section Component ───────────────────────────────────────────── */
 
 export default function CustomFurnitureSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headerRef.current?.children!,
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.12,
-          ease: "power3.out",
-          scrollTrigger: { trigger: headerRef.current, start: "top 85%" },
-        }
-      );
-
-      gsap.fromTo(
-        ".furniture-item",
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: { trigger: ".furniture-grid", start: "top 80%" },
-        }
-      );
-
-      gsap.fromTo(
-        ".custom-piece",
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: { trigger: ".custom-grid", start: "top 80%" },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      id="furniture"
-      className="relative bg-background overflow-hidden"
-      style={{ paddingTop: 100, paddingBottom: 80 }}
-    >
-      {/* Subtle gradient accent */}
+    <section id="furniture" className="relative bg-background overflow-hidden py-24 md:py-32">
       <div className="absolute top-0 left-0 w-1/2 h-96 bg-gradient-to-br from-accent/[0.03] to-transparent" />
 
-      <div className="px-5 max-w-[1440px] mx-auto">
-        {/* ── Section Header ───────────────────────────────────────── */}
-        <div ref={headerRef} className="mb-20">
+      <div className="px-5">
+        {/* Section Header */}
+        <div className="mb-20">
           <p className="font-sans text-[10px] tracking-[0.5em] uppercase text-accent mb-6">
             Bespoke Pieces
           </p>
@@ -121,19 +57,19 @@ export default function CustomFurnitureSection() {
               <span className="italic text-accent">Design</span>
             </h2>
             <p className="font-sans text-sm text-muted max-w-sm leading-[1.8]">
-              Each piece is crafted to order -- the client chooses their fabric
-              and dimensions are made to perfectly fit the space.
+              Each piece is crafted to order &mdash; the client chooses their
+              fabric and dimensions are made to perfectly fit the space.
             </p>
           </div>
           <div className="w-full h-[1px] bg-border mt-12" />
         </div>
 
-        {/* ── Upholstered Seating & Statement Pieces Grid ──────────── */}
-        <div className="furniture-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+        {/* Image Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {furnitureImages.map((img, i) => (
             <div
               key={i}
-              className={`furniture-item relative overflow-hidden img-zoom ${
+              className={`relative overflow-hidden img-zoom ${
                 i === 0 ? "col-span-2 row-span-2" : ""
               }`}
               data-cursor="media"
@@ -155,17 +91,16 @@ export default function CustomFurnitureSection() {
                       : "(max-width: 768px) 50vw, 25vw"
                   }
                 />
-                {/* Hover overlay */}
                 <div className="absolute inset-0 bg-foreground/0 hover:bg-foreground/10 transition-colors duration-500" />
               </div>
             </div>
           ))}
         </div>
 
-        {/* ── Divider ──────────────────────────────────────────────── */}
+        {/* Divider */}
         <div className="w-full h-[1px] bg-border my-16 md:my-20" />
 
-        {/* ── Custom Pieces Sub-section ────────────────────────────── */}
+        {/* Custom Pieces Sub-section */}
         <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-16 mb-12">
           <div className="md:w-1/3 md:sticky md:top-32">
             <span className="font-serif text-6xl md:text-7xl lg:text-8xl text-foreground/[0.06] font-light leading-none select-none block mb-4">
@@ -184,11 +119,11 @@ export default function CustomFurnitureSection() {
             </p>
           </div>
 
-          <div className="custom-grid md:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="md:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-4">
             {customPieces.map((img, i) => (
               <div
                 key={i}
-                className={`custom-piece relative overflow-hidden img-zoom ${
+                className={`relative overflow-hidden img-zoom ${
                   i === 1 ? "col-span-2" : ""
                 }`}
                 data-cursor="media"
