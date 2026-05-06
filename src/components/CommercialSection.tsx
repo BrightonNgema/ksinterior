@@ -1,179 +1,69 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import Image from "next/image";
+import ScrollReveal from "./ScrollReveal";
 
 const commercialProjects = [
   {
     title: "Hospital Interior Projects",
-    subtitle: "Medical Suite Interior",
     description:
-      "Each suite was thoughtfully styled to enhance both patient experience and visual cohesion with practice aesthetic.",
-    images: [
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=900&auto=format&fit=crop",
-    ],
+      "Medical suite interiors thoughtfully styled to enhance both patient experience and visual cohesion with practice aesthetic. Each suite designed for comfort and professionalism.",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80",
+    alt: "Hospital Interior Projects",
   },
   {
     title: "Office Interior Services",
-    subtitle: "Professional Environments",
     description:
-      "Supplier of high-end, durable office furniture & interior styling services. Spaces designed to create professional environments that feel both productive and visually elevated.",
-    images: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1497215842964-222b430dc094?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=900&auto=format&fit=crop",
-    ],
+      "Supplier of high-end, durable office furniture and interior styling services. These spaces are designed to create professional environments that feel both productive and visually elevated.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    alt: "Office Interior Services",
   },
 ];
 
-/* ─── Auto-cycling image card ─────────────────────────────────────── */
-
-function CyclingCard({
-  project,
-  index,
-  interval,
-}: {
-  project: (typeof commercialProjects)[number];
-  index: number;
-  interval: number;
-}) {
-  const [activeImage, setActiveImage] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveImage((prev) => (prev + 1) % project.images.length);
-    }, interval);
-    return () => clearInterval(timer);
-  }, [project.images.length, interval]);
-
+export default function CommercialSection() {
   return (
-    <div className="group" data-cursor="media">
-      {/* Image */}
-      <div className="relative h-[400px] overflow-hidden mb-8">
-        {project.images.map((img, imgIdx) => (
-          <img
-            key={imgIdx}
-            src={img}
-            alt={`${project.title} ${imgIdx + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
-              activeImage === imgIdx
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-105"
-            }`}
-          />
-        ))}
-        <div className="absolute inset-0 bg-background/10" />
-
-        {/* Image indicators */}
-        <div className="absolute bottom-5 left-5 flex gap-2">
-          {project.images.map((_, imgIdx) => (
-            <div
-              key={imgIdx}
-              className={`h-[2px] transition-all duration-500 ${
-                activeImage === imgIdx
-                  ? "w-8 bg-white"
-                  : "w-4 bg-white/30"
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Floating number */}
-        <div className="absolute top-5 right-6">
-          <span className="font-serif text-5xl text-foreground/[0.06]">
-            0{index + 1}
-          </span>
-        </div>
+    <section id="commercial" className="bg-dark text-white py-20 md:py-32 px-6 md:px-12">
+      {/* Header */}
+      <div className="text-center mb-16 md:mb-20">
+        <ScrollReveal>
+          <p className="font-sans text-[0.7rem] tracking-[0.25em] uppercase text-accent-light font-medium mb-6">
+            Commercial
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={1}>
+          <h2 className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-light leading-[1.15] mb-6">
+            Commercial Interior Decor
+          </h2>
+        </ScrollReveal>
+        <ScrollReveal delay={2}>
+          <p className="max-w-[550px] mx-auto text-white/50 text-[0.95rem] leading-relaxed">
+            Professional environments designed to elevate both experience and
+            aesthetic &mdash; from medical suites to executive offices.
+          </p>
+        </ScrollReveal>
       </div>
 
-      {/* Info */}
-      <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-accent/70 mb-2">
-        {project.subtitle}
-      </p>
-      <h3 className="font-serif text-2xl md:text-3xl text-foreground font-light mb-3">
-        {project.title}
-      </h3>
-      <p className="font-sans text-sm text-muted leading-[1.8] max-w-md">
-        {project.description}
-      </p>
-    </div>
-  );
-}
-
-/* ─── Section ─────────────────────────────────────────────────────── */
-
-export default function CommercialSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headerRef.current?.children!,
-        { y: 50, opacity: 0 },
-        {
-          y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: "power3.out",
-          scrollTrigger: { trigger: headerRef.current, start: "top 85%" },
-        }
-      );
-
-      gsap.fromTo(
-        ".commercial-card",
-        { y: 80, opacity: 0 },
-        {
-          y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out",
-          scrollTrigger: { trigger: ".commercial-grid", start: "top 80%" },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section
-      ref={sectionRef}
-      id="commercial"
-      className="relative bg-surface overflow-hidden"
-      style={{ paddingTop: 60, paddingBottom: 60 }}
-    >
-      {/* Gradient accent */}
-      <div className="absolute top-0 right-0 w-1/3 h-96 bg-gradient-to-bl from-accent/[0.03] to-transparent" />
-
-      <div className="px-5">
-        <div ref={headerRef} className="mb-20">
-          <p className="font-sans text-[10px] tracking-[0.5em] uppercase text-accent mb-6">
-            Commercial Work
-          </p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl font-light text-foreground leading-[1.05]">
-              Commercial
-              <br />
-              <span className="italic text-accent">Interiors</span>
-            </h2>
-            <p className="font-sans text-sm text-muted max-w-sm leading-[1.8]">
-              Professional spaces designed with the same care and intention as our residential projects.
-            </p>
-          </div>
-          <div className="w-full h-[1px] bg-border mt-12" />
-        </div>
-
-        <div className="commercial-grid grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
-          {commercialProjects.map((project, i) => (
-            <div key={project.title} className="commercial-card">
-              <CyclingCard
-                project={project}
-                index={i}
-                interval={3500}
-              />
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-[1200px] mx-auto">
+        {commercialProjects.map((project, i) => (
+          <ScrollReveal key={project.title} delay={i === 1 ? 2 : 0}>
+            <div className="group">
+              <div className="aspect-[4/3] overflow-hidden mb-8 relative">
+                <Image
+                  src={project.image}
+                  alt={project.alt}
+                  fill
+                  className="object-cover brightness-[0.85] group-hover:brightness-100 group-hover:scale-[1.03] transition-all duration-800"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <h3 className="font-serif text-[1.6rem] font-normal mb-4">
+                {project.title}
+              </h3>
+              <p className="text-white/50 text-[0.88rem] leading-relaxed">
+                {project.description}
+              </p>
             </div>
-          ))}
-        </div>
+          </ScrollReveal>
+        ))}
       </div>
     </section>
   );
