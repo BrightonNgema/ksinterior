@@ -2,24 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Keisha Sotaka | Interior Stylist & Designer",
+  title: "Keisha Sotaka - Interior Designer & Stylist",
   description:
-    "Bespoke residential & commercial interior styling. Custom furniture design, curated spaces, timeless elegance. Based in South Africa.",
-  keywords: [
-    "interior design",
-    "interior stylist",
-    "luxury interiors",
-    "custom furniture",
-    "residential design",
-    "commercial design",
-    "Keisha Sotaka",
-    "South Africa",
-  ],
-  openGraph: {
-    title: "Keisha Sotaka | Interior Stylist & Designer",
-    description: "Crafting elevated, timeless interiors that feel both sophisticated and deeply personal.",
-    type: "website",
-  },
+    "Creating elevated, timeless spaces that feel both sophisticated and deeply personal. Residential & commercial interior design, custom furniture.",
 };
 
 export default function RootLayout({
@@ -28,10 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full bg-background text-foreground grain">
-        {children}
-      </body>
+    <html lang="en" className="antialiased">
+      <body className="min-h-screen overflow-x-hidden">{children}</body>
     </html>
   );
 }

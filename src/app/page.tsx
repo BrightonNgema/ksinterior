@@ -1,39 +1,25 @@
-"use client";
-
-import { useState, useCallback } from "react";
-import { useLenis } from "@/hooks/useLenis";
-import Preloader from "@/components/Preloader";
-import CustomCursor from "@/components/CustomCursor";
-import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ResidentialSection from "@/components/ResidentialSection";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Divider from "@/components/Divider";
+import ResidentialProjects from "@/components/ResidentialProjects";
 import CommercialSection from "@/components/CommercialSection";
-import CustomFurnitureSection from "@/components/CustomFurnitureSection";
-import ContactSection from "@/components/ContactSection";
-
+import FurnitureSection from "@/components/FurnitureSection";
+import VideoShowcase from "@/components/VideoShowcase";
+import Contact from "@/components/Contact";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  useLenis();
-
-  const handlePreloaderComplete = useCallback(() => {
-    setIsLoading(false);
-  }, []);
-
   return (
     <>
-      {isLoading && <Preloader onComplete={handlePreloaderComplete} />}
-      <CustomCursor />
-      <Navigation />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ResidentialSection />
-        <CommercialSection />
-        <CustomFurnitureSection />
-        <ContactSection />
-      </main>
+      <Navbar />
+      <Hero />
+      <About />
+      <Divider />
+      <ResidentialProjects />
+      <VideoShowcase />
+      <CommercialSection />
+      <FurnitureSection />
+      <Contact />
     </>
   );
 }
