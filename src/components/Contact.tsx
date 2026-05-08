@@ -1,22 +1,26 @@
 import Image from "next/image";
-import { Mail, Phone, Camera } from "lucide-react";
+import { FiMail, FiPhone } from "react-icons/fi";
+import { FaInstagram } from "react-icons/fa";
 import ScrollReveal from "./ScrollReveal";
 
 const contactItems = [
   {
-    icon: Mail,
+    icon: FiMail,
     value: "keishasotaka@gmail.com",
     href: "mailto:keishasotaka@gmail.com",
+    external: false,
   },
   {
-    icon: Phone,
+    icon: FiPhone,
     value: "071 027 4919",
-    href: "tel:+27710274919",
+    href: "https://wa.me/27710274919",
+    external: true,
   },
   {
-    icon: Camera,
+    icon: FaInstagram,
     value: "@keishsotaka",
-    href: "#",
+    href: "https://www.instagram.com/keishsotaka/",
+    external: true,
   },
 ];
 
@@ -59,11 +63,11 @@ export default function Contact() {
             <ScrollReveal key={item.value} delay={i as 0 | 1 | 2}>
               <a
                 href={item.href}
+                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="flex items-center gap-3 text-white/70 no-underline transition-colors hover:text-white group"
               >
                 <item.icon
                   size={18}
-                  strokeWidth={1.5}
                   className="text-accent-light group-hover:text-white transition-colors"
                 />
                 <span className="text-[0.95rem]">{item.value}</span>

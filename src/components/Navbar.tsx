@@ -68,7 +68,7 @@ export default function Navbar() {
 
       {/* Mobile menu overlay */}
       <div
-        className={`fixed inset-0 z-[999] flex flex-col items-center justify-center gap-8 bg-bg transition-opacity duration-400 md:hidden ${
+        className={`fixed inset-0 z-[1001] flex flex-col items-center justify-center gap-8 bg-bg transition-opacity duration-400 md:hidden ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
