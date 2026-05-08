@@ -22,7 +22,7 @@ export default function About() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
         {/* Image */}
         <ScrollReveal>
-          <div className="relative max-w-[400px] md:max-w-none">
+          <div className="relative max-w-[400px] md:max-w-none overflow-hidden md:overflow-visible">
             <div className="relative aspect-[3/4] overflow-hidden">
               <Image
                 src="/images/about/keisha-sotaka.png"

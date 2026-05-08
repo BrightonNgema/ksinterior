@@ -40,7 +40,7 @@ const bespokeImages = [
 
 export default function FurnitureSection() {
   return (
-    <section id="furniture" className="py-20 md:py-32 px-6 md:px-12">
+    <section id="furniture" className="py-20 md:py-32 px-6 md:px-12 overflow-hidden">
       {/* Header */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 max-w-[1400px] mx-auto mb-12 md:mb-20 md:items-end">
         <div>
@@ -67,7 +67,7 @@ export default function FurnitureSection() {
       </div>
 
       {/* Main gallery */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 max-w-[1400px] mx-auto mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 max-w-[1400px] mx-auto mb-6 [&>*]:min-w-0">
         {galleryImages.map((img, i) => (
           <ScrollReveal
             key={img.alt}
@@ -75,8 +75,8 @@ export default function FurnitureSection() {
             className={img.span ? "col-span-2 md:row-span-2" : ""}
           >
             <div
-              className={`img-hover overflow-hidden relative ${
-                img.span ? "aspect-[16/9] md:aspect-auto h-full min-h-[250px]" : "aspect-square"
+              className={`img-hover overflow-hidden relative w-full ${
+                img.span ? "aspect-[16/9] md:aspect-auto md:h-full min-h-[200px] md:min-h-[250px]" : "aspect-square"
               }`}
             >
               <Image
@@ -96,7 +96,7 @@ export default function FurnitureSection() {
       </div>
 
       {/* Bespoke pieces row */}
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4 max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4 max-w-[1400px] mx-auto [&>*]:min-w-0">
         {bespokeImages.map((img, i) => (
           <ScrollReveal key={img.alt} delay={i < 2 ? 0 : i < 4 ? 1 : 2}>
             <div className="img-hover overflow-hidden relative aspect-square">
