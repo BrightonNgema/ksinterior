@@ -5,7 +5,6 @@ import Divider from "@/components/Divider";
 import ResidentialProjects from "@/components/ResidentialProjects";
 import CommercialSection from "@/components/CommercialSection";
 import FurnitureSection from "@/components/FurnitureSection";
-import VideoShowcase from "@/components/VideoShowcase";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <About />
       <Divider />
       <ResidentialProjects />
-      <VideoShowcase />
       <CommercialSection />
       <FurnitureSection />
       <Contact />

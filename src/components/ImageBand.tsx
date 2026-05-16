@@ -1,20 +1,25 @@
 import Image from "next/image";
 
+import velvet1 from "@/assets/velvet-haven/IMG_6855.jpg";
+import elevated4 from "@/assets/elevated-living/IMG_5522.jpg";
+import bachelor3 from "@/assets/bachelors-paradise/IMG_9575.jpg";
+import muse4 from "@/assets/modern-muse/IMG_5619.jpg";
+
 const images = [
   {
-    src: "/images/residential/velvet-1.jpg",
+    src: velvet1,
     label: "Velvet Haven",
   },
   {
-    src: "/images/residential/elevated-4.jpg",
+    src: elevated4,
     label: "Statement Pieces",
   },
   {
-    src: "/images/residential/bachelor-4.jpg",
+    src: bachelor3,
     label: "Curated Spaces",
   },
   {
-    src: "/images/residential/muse-5.jpg",
+    src: muse4,
     label: "Refined Finishes",
   },
 ];
