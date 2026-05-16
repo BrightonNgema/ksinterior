@@ -8,7 +8,6 @@ const projects = [
     title: "The Modern Muse",
     description:
       "A blank canvas transformed into a modern, minimal and sophisticated sanctuary. Every detail was thoughtfully curated to balance clean lines with warmth.",
-    tags: ["Lounge Area", "Pajama Room", "Full Styling"],
     images: [
       { src: "/images/residential/muse-1.jpg", alt: "The Modern Muse - Lounge" },
       { src: "/images/residential/muse-2.jpg", alt: "The Modern Muse - Living Room" },
@@ -21,7 +20,6 @@ const projects = [
     title: "A Bachelor\u2019s Paradise",
     description:
       "This project focused on creating a cohesive flow between entryway, game room, lounge and private spaces \u2014 each area styled with statement pieces and a masculine yet sophisticated palette.",
-    tags: ["Entry Way", "Game Room", "Pajama Room"],
     images: [
       { src: "/images/residential/bachelor-1.jpg", alt: "Bachelor's Paradise - Entry" },
       { src: "/images/residential/bachelor-2.jpg", alt: "Bachelor's Paradise - Game Room" },
@@ -34,7 +32,6 @@ const projects = [
     title: "Elevated Living",
     description:
       "Every detail in this space was intentionally selected \u2014 from custom furniture pieces to refined finishes \u2014 creating a cohesive environment that feels calm, elevated and effortlessly luxurious.",
-    tags: ["Interior Decor", "Custom Furniture", "Full Service"],
     images: [
       { src: "/images/residential/elevated-1.jpg", alt: "Elevated Living - Main" },
       { src: "/images/residential/elevated-2.jpg", alt: "Elevated Living - Dining" },

@@ -5,7 +5,6 @@ interface ProjectCardProps {
   number: string;
   title: string;
   description: string;
-  tags: string[];
   images: { src: string; alt: string }[];
   reverse?: boolean;
 }
@@ -14,7 +13,6 @@ export default function ProjectCard({
   number,
   title,
   description,
-  tags,
   images,
   reverse = false,
 }: ProjectCardProps) {
@@ -65,19 +63,6 @@ export default function ProjectCard({
             <p className="text-text-muted text-[0.92rem] leading-relaxed mb-6 max-w-[420px]">
               {description}
             </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={3}>
-            <div className="flex flex-wrap gap-3 mt-8">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[0.68rem] tracking-[0.15em] uppercase px-5 py-2 border border-border text-text-muted"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </ScrollReveal>
         </div>
       </div>
