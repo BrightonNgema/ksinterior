@@ -22,7 +22,7 @@ import cf6936 from "@/assets/custom-furniture/cf-6936.jpg";
 // Videos
 import cfVid1 from "@/assets/custom-furniture/cf-0953.MOV";
 import cfVid2 from "@/assets/custom-furniture/cf-5611.MOV";
-import cfVid3 from "@/assets/custom-furniture/cf-6937.MOV";
+import cfVid3 from "@/assets/custom-furniture/cf-6937.mp4";
 
 const galleryItems = [
   { type: "image" as const, src: cfPng, alt: "Custom sofa design", span: true },

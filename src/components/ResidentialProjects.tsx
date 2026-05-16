@@ -16,7 +16,7 @@ import bachelor1 from "@/assets/bachelors-paradise/939c06c8-9c7e-419d-8415-d6f09
 import bachelor2 from "@/assets/bachelors-paradise/IMG_9521.jpg";
 import bachelor3 from "@/assets/bachelors-paradise/IMG_9575.jpg";
 // Bachelor's Paradise — videos
-import bachelorVid1 from "@/assets/bachelors-paradise/IMG_9576.MOV";
+import bachelorVid1 from "@/assets/bachelors-paradise/IMG_9576.mp4";
 
 // Elevated Living — images
 import elevated1 from "@/assets/elevated-living/IMG_5451.jpg";

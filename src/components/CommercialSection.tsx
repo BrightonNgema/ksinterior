@@ -12,8 +12,8 @@ import hospitalVid1 from "@/assets/hospital-interior/31d8b5ae-ff45-4358-a262-5f9
 import hospitalVid2 from "@/assets/hospital-interior/IMG_0529.mov";
 import hospitalVid3 from "@/assets/hospital-interior/IMG_0531.mov";
 import hospitalVid4 from "@/assets/hospital-interior/IMG_1249.MOV";
-import hospitalVid6 from "@/assets/hospital-interior/IMG_1699.mov";
-import hospitalVid7 from "@/assets/hospital-interior/IMG_3834.mov";
+import hospitalVid6 from "@/assets/hospital-interior/IMG_1699.mp4";
+import hospitalVid7 from "@/assets/hospital-interior/IMG_3834.mp4";
 
 // Commercial Interior — images
 import commercialImg1 from "@/assets/commercial-interior/1000008351.jpeg";
