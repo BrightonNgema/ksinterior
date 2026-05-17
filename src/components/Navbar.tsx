@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const links = [
   { href: "#about", label: "About" },
@@ -30,13 +31,15 @@ export default function Navbar() {
         }`}
       >
         <a href="#" className="flex items-center gap-3 no-underline">
-          <img
+          <Image
             src="/images/logo/logo-mark.png"
             alt="KS"
+            width={80}
+            height={36}
             className="h-8 md:h-9 w-auto"
           />
-          <span className="font-serif text-[1.2rem] tracking-[0.08em] text-text">
-            <span className="font-semibold">K</span>eisha Sotaka
+          <span className="font-serif text-[1.2rem] tracking-[0.08em] text-text -ml-4 mt-3">
+            eisha Sotaka
           </span>
         </a>
 

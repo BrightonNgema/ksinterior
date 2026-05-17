@@ -72,7 +72,7 @@ export default function ProjectCard({
         }`}
       >
         {/* Media grid */}
-        <ScrollReveal className={reverse ? "md:[direction:ltr]" : ""}>
+        <ScrollReveal className={`order-2 md:order-none ${reverse ? "md:[direction:ltr]" : ""}`}>
           <div className="grid grid-cols-2 gap-3 md:gap-4">
             {media.map((item, i) => {
               const isHero = i === 0 && total >= 3 && total % 2 !== 0;
@@ -104,7 +104,7 @@ export default function ProjectCard({
         </ScrollReveal>
 
         {/* Info */}
-        <div className={reverse ? "md:[direction:ltr]" : ""}>
+        <div className={`order-1 md:order-none ${reverse ? "md:[direction:ltr]" : ""}`}>
           <ScrollReveal>
             <p className="font-serif text-[0.85rem] text-accent-light tracking-[0.1em] mb-6">
               {number}
