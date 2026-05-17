@@ -79,9 +79,11 @@ export default function Contact() {
         {/* Footer */}
         <div className="pt-12 md:pt-16 border-t border-white/[0.08] flex flex-col sm:flex-row justify-between items-center gap-4 max-w-[1200px] mx-auto">
           <div className="flex items-center gap-3">
-            <img
+            <Image
               src="/images/logo/logo-mark.png"
               alt="KS"
+              width={80}
+              height={28}
               className="h-7 w-auto brightness-0 invert opacity-60"
             />
             <span className="font-serif text-[1.1rem] tracking-[0.08em] text-white/60 -ml-3.5 mt-2">
