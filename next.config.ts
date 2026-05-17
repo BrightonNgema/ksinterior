@@ -4,12 +4,22 @@ const nextConfig: NextConfig = {
   output: "export",
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
+  },
+  turbopack: {
+    rules: {
+      "*.mp4": {
+        type: "asset",
       },
-    ],
+      "*.mov": {
+        type: "asset",
+      },
+      "*.MOV": {
+        type: "asset",
+      },
+      "*.webm": {
+        type: "asset",
+      },
+    },
   },
 };
 

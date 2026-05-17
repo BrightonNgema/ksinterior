@@ -1,22 +1,126 @@
-import Image from "next/image";
+"use client";
+
+import { useRef } from "react";
+import Image, { StaticImageData } from "next/image";
 import ScrollReveal from "./ScrollReveal";
+
+// Hospital Interior — images
+import hospitalImg1 from "@/assets/hospital-interior/View recent photos.jpeg";
+import hospitalImg2 from "@/assets/hospital-interior/IMG_3446.jpg";
+// Hospital Interior — videos
+import hospitalVid1 from "@/assets/hospital-interior/31d8b5ae-ff45-4358-a262-5f90091eb4ba.mp4";
+import hospitalVid2 from "@/assets/hospital-interior/IMG_0529.mov";
+import hospitalVid3 from "@/assets/hospital-interior/IMG_0531.mov";
+import hospitalVid4 from "@/assets/hospital-interior/IMG_1249.MOV";
+import hospitalVid6 from "@/assets/hospital-interior/IMG_1699.mp4";
+import hospitalVid7 from "@/assets/hospital-interior/IMG_3834.mp4";
+
+// Commercial Interior — images
+import commercialImg1 from "@/assets/commercial-interior/1000008351.jpeg";
+import commercialImg2 from "@/assets/commercial-interior/IMG_7342.jpg";
+import commercialImg3 from "@/assets/commercial-interior/IMG_7368.jpg";
+// Commercial Interior — videos
+import commercialVid1 from "@/assets/commercial-interior/1000008516.mp4";
+import commercialVid2 from "@/assets/commercial-interior/1000008520.mp4";
+import commercialVid3 from "@/assets/commercial-interior/E54357F2-3874-498D-83C8-644B4167BA9D.mp4";
+
+interface MediaItem {
+  type: "image" | "video";
+  src: string | StaticImageData;
+  alt: string;
+}
 
 const commercialProjects = [
   {
     title: "Hospital Interior Projects",
     description:
       "Medical suite interiors thoughtfully styled to enhance both patient experience and visual cohesion with practice aesthetic. Each suite designed for comfort and professionalism.",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80",
-    alt: "Hospital Interior Projects",
+    media: [
+      { type: "image" as const, src: hospitalImg1, alt: "Hospital Interior - Reception" },
+      { type: "image" as const, src: hospitalImg2, alt: "Hospital Interior - Suite" },
+      { type: "video" as const, src: hospitalVid1, alt: "Hospital Interior - Walk-through 1" },
+      { type: "video" as const, src: hospitalVid2, alt: "Hospital Interior - Walk-through 2" },
+      { type: "video" as const, src: hospitalVid3, alt: "Hospital Interior - Walk-through 3" },
+      { type: "video" as const, src: hospitalVid4, alt: "Hospital Interior - Walk-through 4" },
+      { type: "video" as const, src: hospitalVid6, alt: "Hospital Interior - Walk-through 5" },
+      { type: "video" as const, src: hospitalVid7, alt: "Hospital Interior - Walk-through 6" },
+    ],
   },
   {
     title: "Office Interior Services",
     description:
       "Supplier of high-end, durable office furniture and interior styling services. These spaces are designed to create professional environments that feel both productive and visually elevated.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-    alt: "Office Interior Services",
+    media: [
+      { type: "image" as const, src: commercialImg1, alt: "Office Interior - Overview" },
+      { type: "image" as const, src: commercialImg2, alt: "Office Interior - Workspace" },
+      { type: "image" as const, src: commercialImg3, alt: "Office Interior - Detail" },
+      { type: "video" as const, src: commercialVid1, alt: "Office Interior - Walk-through 1" },
+      { type: "video" as const, src: commercialVid2, alt: "Office Interior - Walk-through 2" },
+      { type: "video" as const, src: commercialVid3, alt: "Office Interior - Walk-through 3" },
+    ],
   },
 ];
+
+function VideoCell({ src, alt }: { src: string; alt: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  return (
+    <div
+      className="relative w-full h-full cursor-pointer group/vid"
+      onMouseEnter={() => ref.current?.play()}
+      onMouseLeave={() => {
+        const v = ref.current;
+        if (v) {
+          v.pause();
+          v.currentTime = 0;
+        }
+      }}
+    >
+      <video
+        ref={ref}
+        src={src}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-label={alt}
+      />
+      <div className="absolute inset-0 flex items-center justify-center group-hover/vid:opacity-0 transition-opacity duration-300 pointer-events-none">
+        <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center backdrop-blur-sm bg-white/5">
+          <svg className="w-3.5 h-3.5 text-white/70 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MediaGrid({ media }: { media: MediaItem[] }) {
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+      {media.map((item, i) => (
+        <div
+          key={i}
+          className="img-hover overflow-hidden relative aspect-[4/3]"
+        >
+          {item.type === "video" ? (
+            <VideoCell src={item.src as string} alt={item.alt} />
+          ) : (
+            <Image
+              src={item.src}
+              alt={item.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, 33vw"
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function CommercialSection() {
   return (
@@ -41,26 +145,20 @@ export default function CommercialSection() {
         </ScrollReveal>
       </div>
 
-      {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-[1200px] mx-auto">
+      {/* Projects */}
+      <div className="max-w-[1400px] mx-auto space-y-20 md:space-y-28">
         {commercialProjects.map((project, i) => (
           <ScrollReveal key={project.title} delay={i === 1 ? 2 : 0}>
-            <div className="group">
-              <div className="aspect-[4/3] overflow-hidden mb-8 relative">
-                <Image
-                  src={project.image}
-                  alt={project.alt}
-                  fill
-                  className="object-cover brightness-[0.85] group-hover:brightness-100 group-hover:scale-[1.03] transition-all duration-800"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+            <div>
+              <div className="mb-8 md:mb-10">
+                <h3 className="font-serif text-[1.6rem] font-normal mb-4">
+                  {project.title}
+                </h3>
+                <p className="text-white/50 text-[0.88rem] leading-relaxed max-w-[550px]">
+                  {project.description}
+                </p>
               </div>
-              <h3 className="font-serif text-[1.6rem] font-normal mb-4">
-                {project.title}
-              </h3>
-              <p className="text-white/50 text-[0.88rem] leading-relaxed">
-                {project.description}
-              </p>
+              <MediaGrid media={project.media} />
             </div>
           </ScrollReveal>
         ))}

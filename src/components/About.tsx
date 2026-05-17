@@ -1,21 +1,6 @@
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 
-const services = [
-  {
-    title: "Residential Interior",
-    desc: "Complete home styling from living spaces to private sanctuaries",
-  },
-  {
-    title: "Commercial Interior",
-    desc: "Professional spaces designed for function and visual impact",
-  },
-  {
-    title: "Custom Furniture",
-    desc: "Bespoke pieces tailored to your space and style",
-  },
-];
-
 export default function About() {
   return (
     <section id="about" className="py-20 md:py-32 px-6 md:px-12 max-w-[1400px] mx-auto">
@@ -74,21 +59,6 @@ export default function About() {
                 enhanced through a lens of modern sophistication and understated
                 luxury.
               </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={3}>
-            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 mt-10 pt-8 border-t border-border">
-              {services.map((s) => (
-                <div key={s.title} className="flex-1">
-                  <h4 className="font-serif text-[1.15rem] font-normal mb-2">
-                    {s.title}
-                  </h4>
-                  <p className="text-[0.8rem] text-text-muted leading-relaxed">
-                    {s.desc}
-                  </p>
-                </div>
-              ))}
             </div>
           </ScrollReveal>
         </div>
