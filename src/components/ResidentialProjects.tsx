@@ -9,7 +9,7 @@ import muse3 from "@/assets/modern-muse/IMG_5617.jpg";
 import muse4 from "@/assets/modern-muse/IMG_5619.jpg";
 // Modern Muse — videos
 import museVid1 from "@/assets/modern-muse/IMG_5405.MOV";
-import museVid2 from "@/assets/modern-muse/IMG_5634.MOV";
+import museVid2 from "@/assets/modern-muse/IMG_5634.mp4";
 
 // Bachelor's Paradise — images
 import bachelor1 from "@/assets/bachelors-paradise/939c06c8-9c7e-419d-8415-d6f096d6e106.jpg";
