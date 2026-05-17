@@ -35,8 +35,8 @@ export default function Navbar() {
             alt="KS"
             className="h-8 md:h-9 w-auto"
           />
-          <span className="font-serif text-[1.2rem] tracking-[0.08em] text-text">
-            <span className="font-semibold">K</span>eisha Sotaka
+          <span className="font-serif text-[1.2rem] tracking-[0.08em] text-text -ml-4 mt-3">
+            eisha Sotaka
           </span>
         </a>
 

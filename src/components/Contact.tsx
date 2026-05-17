@@ -84,8 +84,8 @@ export default function Contact() {
               alt="KS"
               className="h-7 w-auto brightness-0 invert opacity-60"
             />
-            <span className="font-serif text-[1.1rem] tracking-[0.08em] text-white/60">
-              Keisha Sotaka
+            <span className="font-serif text-[1.1rem] tracking-[0.08em] text-white/60 -ml-3.5 mt-2">
+              eisha Sotaka
             </span>
           </div>
           <span className="text-[0.7rem] text-white/25 tracking-[0.1em]">
