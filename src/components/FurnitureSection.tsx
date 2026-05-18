@@ -150,9 +150,7 @@ export default function FurnitureSection() {
         {bespokeItems.map((item, i) => (
           <ScrollReveal key={item.alt} delay={i < 2 ? 0 : i < 4 ? 1 : 2}>
             <div className="img-hover overflow-hidden relative aspect-square">
-              {item.type === "video" ? (
-                <VideoCell src={item.src as string} alt={item.alt} />
-              ) : (
+
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -160,7 +158,7 @@ export default function FurnitureSection() {
                   className="object-cover"
                   sizes="(max-width: 768px) 33vw, 20vw"
                 />
-              )}
+              
             </div>
           </ScrollReveal>
         ))}
