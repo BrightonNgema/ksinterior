@@ -8,12 +8,10 @@ import ScrollReveal from "./ScrollReveal";
 import hospitalImg1 from "@/assets/hospital-interior/View recent photos.jpeg";
 import hospitalImg2 from "@/assets/hospital-interior/IMG_3446.jpg";
 // Hospital Interior — videos
-import hospitalVid1 from "@/assets/hospital-interior/31d8b5ae-ff45-4358-a262-5f90091eb4ba.mp4";
-import hospitalVid2 from "@/assets/hospital-interior/IMG_0529.mov";
-import hospitalVid3 from "@/assets/hospital-interior/IMG_0531.mov";
-import hospitalVid4 from "@/assets/hospital-interior/IMG_1249.MOV";
-import hospitalVid6 from "@/assets/hospital-interior/IMG_1699.mp4";
-import hospitalVid7 from "@/assets/hospital-interior/IMG_3834.mp4";
+import hospitalVid1 from "@/assets/hospital-interior/IMG_0531.mov";
+import hospitalVid2 from "@/assets/hospital-interior/IMG_1249.MOV";
+import hospitalVid3 from "@/assets/hospital-interior/IMG_1699.mp4";
+import hospitalVid4 from "@/assets/hospital-interior/IMG_3834.mp4";
 
 // Commercial Interior — images
 import commercialImg1 from "@/assets/commercial-interior/1000008351.jpeg";
@@ -23,6 +21,10 @@ import commercialImg3 from "@/assets/commercial-interior/IMG_7368.jpg";
 import commercialVid1 from "@/assets/commercial-interior/1000008516.mp4";
 import commercialVid2 from "@/assets/commercial-interior/1000008520.mp4";
 import commercialVid3 from "@/assets/commercial-interior/E54357F2-3874-498D-83C8-644B4167BA9D.mp4";
+import commercialVid4 from "@/assets/commercial-interior/31d8b5ae-ff45-4358-a262-5f90091eb4ba.mp4";
+
+// Section showcase video
+import commercialShowcase from "@/assets/commercial-interior/commercial.mp4";
 
 interface MediaItem {
   type: "image" | "video";
@@ -38,12 +40,10 @@ const commercialProjects = [
     media: [
       { type: "image" as const, src: hospitalImg1, alt: "Hospital Interior - Reception" },
       { type: "image" as const, src: hospitalImg2, alt: "Hospital Interior - Suite" },
-      { type: "video" as const, src: hospitalVid1, alt: "Hospital Interior - Walk-through 1" },
-      { type: "video" as const, src: hospitalVid2, alt: "Hospital Interior - Walk-through 2" },
-      { type: "video" as const, src: hospitalVid3, alt: "Hospital Interior - Walk-through 3" },
-      { type: "video" as const, src: hospitalVid4, alt: "Hospital Interior - Walk-through 4" },
-      { type: "video" as const, src: hospitalVid6, alt: "Hospital Interior - Walk-through 5" },
-      { type: "video" as const, src: hospitalVid7, alt: "Hospital Interior - Walk-through 6" },
+      { type: "video" as const, src: hospitalVid1, alt: "Hospital Interior - Walk-through 3" },
+      { type: "video" as const, src: hospitalVid2, alt: "Hospital Interior - Walk-through 4" },
+      { type: "video" as const, src: hospitalVid3, alt: "Hospital Interior - Walk-through 5" },
+      { type: "video" as const, src: hospitalVid4, alt: "Hospital Interior - Walk-through 6" },
     ],
   },
   {
@@ -57,6 +57,7 @@ const commercialProjects = [
       { type: "video" as const, src: commercialVid1, alt: "Office Interior - Walk-through 1" },
       { type: "video" as const, src: commercialVid2, alt: "Office Interior - Walk-through 2" },
       { type: "video" as const, src: commercialVid3, alt: "Office Interior - Walk-through 3" },
+      { type: "video" as const, src: commercialVid4, alt: "Hospital Interior - Walk-through 1" },
     ],
   },
 ];
@@ -144,6 +145,27 @@ export default function CommercialSection() {
           </p>
         </ScrollReveal>
       </div>
+
+      {/* Showcase Video */}
+      <ScrollReveal delay={3}>
+        <div className="max-w-[1100px] mx-auto mb-20 md:mb-28">
+          <div className="relative overflow-hidden rounded-sm shadow-2xl shadow-black/40 aspect-video group/showcase">
+            <video
+              src={commercialShowcase}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.6s] ease-out group-hover/showcase:scale-[1.03]"
+              aria-label="Commercial interior decor showcase"
+            />
+            {/* Subtle cinematic overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10 pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          </div>
+        </div>
+      </ScrollReveal>
 
       {/* Projects */}
       <div className="max-w-[1400px] mx-auto space-y-20 md:space-y-28">
