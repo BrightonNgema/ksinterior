@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: "Keisha Sotaka - Interior Designer & Stylist",
   description:
     "Creating elevated, timeless spaces that feel both sophisticated and deeply personal. Residential & commercial interior design, custom furniture.",
+  icons: {
+    icon: "/images/logo/logo-mark.png",
+    apple: "/images/logo/logo-mark.png",
+  },
 };
 
 export default function RootLayout({
