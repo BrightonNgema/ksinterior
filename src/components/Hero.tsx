@@ -17,9 +17,18 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 text-center max-w-[800px]">
-        <h1 className="hero-animate hero-animate-1 font-serif text-[clamp(3rem,8vw,7rem)] font-light tracking-[0.04em] leading-none mb-[0.3em]">
-          Keisha Sotaka
-        </h1>
+        <div className="hero-animate hero-animate-1 flex items-center justify-center gap-1 md:gap-3">
+          <Image
+            src="/images/logo/logo-mark.png"
+            alt="KS"
+            width={180}
+            height={180}
+            className="h-[2.5em] md:h-[6em] lg:h-[8em] w-auto md:mt-2"
+          />
+          <span className="text-text font-serif text-[clamp(1.8rem,6vw,7rem)] font-light tracking-[0.04em] -ml-2.5 md:-ml-5 lg:-ml-8 mt-3 md:mt-5 lg:mt-7">
+            eisha Sotaka
+          </span>
+        </div>
         <p className="hero-animate hero-animate-2 font-sans text-[0.75rem] tracking-[0.35em] uppercase text-accent font-normal mb-12">
           Interior Designer &amp; Stylist
         </p>
