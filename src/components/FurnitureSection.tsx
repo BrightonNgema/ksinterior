@@ -34,14 +34,14 @@ const galleryItems = [
 ];
 
 const bespokeItems = [
-  { type: "image" as const, src: cf0868, alt: "Custom headboard" },
+  // { type: "image" as const, src: cf0868, alt: "Custom headboard" },
   { type: "image" as const, src: cf0878, alt: "Bespoke side table" },
-  { type: "image" as const, src: cf0881, alt: "Custom entertainment unit" },
-  { type: "video" as const, src: cfVid2, alt: "Custom furniture - Process 2" },
-  { type: "image" as const, src: cf0957, alt: "Statement chair" },
+  // { type: "image" as const, src: cf0881, alt: "Custom entertainment unit" },
+  // { type: "video" as const, src: cfVid2, alt: "Custom furniture - Process 2" },
+  // { type: "image" as const, src: cf0957, alt: "Statement chair" },
   { type: "image" as const, src: cf0981, alt: "Accent seating" },
   { type: "image" as const, src: cf5601, alt: "Custom ottoman" },
-  { type: "video" as const, src: cfVid3, alt: "Custom furniture - Process 3" },
+  // { type: "video" as const, src: cfVid3, alt: "Custom furniture - Process 3" },
   { type: "image" as const, src: cf6934, alt: "Bespoke cabinet" },
   { type: "image" as const, src: cf6936, alt: "Custom shelving" },
 ];

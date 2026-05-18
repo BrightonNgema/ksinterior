@@ -1,3 +1,5 @@
+"use client";
+
 import ScrollReveal from "./ScrollReveal";
 import ProjectCard from "./ProjectCard";
 import ImageBand from "./ImageBand";
@@ -39,6 +41,9 @@ import entry2 from "@/assets/statement-entryway/IMG_6914.jpg";
 // Statement Entryway — videos
 import entryVid1 from "@/assets/statement-entryway/IMG_6918.MOV";
 
+// Section showcase video
+import residentialShowcase from "@/assets/residential/residential.mov";
+
 const projects = [
   {
     number: "01",
@@ -78,8 +83,6 @@ const projects = [
       { type: "image" as const, src: elevated2, alt: "Elevated Living - Dining" },
       { type: "image" as const, src: elevated3, alt: "Elevated Living - Accent" },
       { type: "image" as const, src: elevated4, alt: "Elevated Living - Detail" },
-      { type: "video" as const, src: elevatedVid1, alt: "Elevated Living - Walk-through" },
-      { type: "video" as const, src: elevatedVid2, alt: "Elevated Living - Tour" },
     ],
     reverse: false,
   },
@@ -106,7 +109,7 @@ const projectsAfterBand = [
     media: [
       { type: "image" as const, src: entry1, alt: "Statement Entryway - Main" },
       { type: "image" as const, src: entry2, alt: "Statement Entryway - Detail" },
-      { type: "video" as const, src: entryVid1, alt: "Statement Entryway - Walk-through" },
+      // { type: "video" as const, src: entryVid1, alt: "Statement Entryway - Walk-through" },
     ],
     reverse: false,
   },
@@ -135,13 +138,36 @@ export default function ResidentialProjects() {
         </ScrollReveal>
       </div>
 
+      {/* Showcase Video */}
+      <div className="px-6 md:px-12 pb-14 md:pb-24">
+        <ScrollReveal delay={3}>
+          <div className="max-w-[1100px] mx-auto">
+            <div className="relative overflow-hidden rounded-sm shadow-2xl shadow-black/15 aspect-video group/showcase">
+              <video
+                src={residentialShowcase}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.6s] ease-out group-hover/showcase:scale-[1.03]"
+                aria-label="Residential interior decor showcase"
+              />
+              {/* Subtle cinematic overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/5 pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+
       {/* First 3 projects */}
       {projects.map((p) => (
         <ProjectCard key={p.number} {...p} />
       ))}
 
       {/* Image band */}
-      <ImageBand />
+      {/* <ImageBand /> */}
 
       {/* Last 2 projects */}
       {projectsAfterBand.map((p) => (
