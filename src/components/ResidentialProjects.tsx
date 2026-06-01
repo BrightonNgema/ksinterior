@@ -60,21 +60,21 @@ const projects = [
     ],
     reverse: false,
   },
+  // {
+  //   number: "02",
+  //   title: "A Bachelor\u2019s Paradise",
+  //   description:
+  //     "This project focused on creating a cohesive flow between entryway, game room, lounge and private spaces \u2014 each area styled with statement pieces and a masculine yet sophisticated palette.",
+  //   media: [
+  //     { type: "image" as const, src: bachelor1, alt: "Bachelor's Paradise - Entry" },
+  //     { type: "image" as const, src: bachelor2, alt: "Bachelor's Paradise - Game Room" },
+  //     { type: "image" as const, src: bachelor3, alt: "Bachelor's Paradise - Lounge" },
+  //     { type: "video" as const, src: bachelorVid1, alt: "Bachelor's Paradise - Walk-through" },
+  //   ],
+  //   reverse: true,
+  // },
   {
     number: "02",
-    title: "A Bachelor\u2019s Paradise",
-    description:
-      "This project focused on creating a cohesive flow between entryway, game room, lounge and private spaces \u2014 each area styled with statement pieces and a masculine yet sophisticated palette.",
-    media: [
-      { type: "image" as const, src: bachelor1, alt: "Bachelor's Paradise - Entry" },
-      { type: "image" as const, src: bachelor2, alt: "Bachelor's Paradise - Game Room" },
-      { type: "image" as const, src: bachelor3, alt: "Bachelor's Paradise - Lounge" },
-      { type: "video" as const, src: bachelorVid1, alt: "Bachelor's Paradise - Walk-through" },
-    ],
-    reverse: true,
-  },
-  {
-    number: "03",
     title: "Elevated Living",
     description:
       "Every detail in this space was intentionally selected \u2014 from custom furniture pieces to refined finishes \u2014 creating a cohesive environment that feels calm, elevated and effortlessly luxurious.",
@@ -84,13 +84,13 @@ const projects = [
       { type: "image" as const, src: elevated3, alt: "Elevated Living - Accent" },
       { type: "image" as const, src: elevated4, alt: "Elevated Living - Detail" },
     ],
-    reverse: false,
+    reverse: true,
   },
 ];
 
 const projectsAfterBand = [
   {
-    number: "04",
+    number: "03",
     title: "Velvet Haven",
     description:
       "An interior styling service to introduce warmth and depth into the space. Velvet finishes used to create an intimate yet sophisticated atmosphere, turning the home into a true haven of comfort and style.",
@@ -99,10 +99,10 @@ const projectsAfterBand = [
       { type: "image" as const, src: velvet2, alt: "Velvet Haven - Detail" },
       { type: "video" as const, src: velvetVid1, alt: "Velvet Haven - Walk-through" },
     ],
-    reverse: true,
+    reverse: false,
   },
   {
-    number: "05",
+    number: "04",
     title: "The Statement Entryway",
     description:
       "A striking yet minimal entryway designed to leave a lasting first impression. This space was curated using unique yet clean design principles \u2014 balancing boldness with simplicity to create an entrance that immediately captures attention.",
@@ -111,7 +111,7 @@ const projectsAfterBand = [
       { type: "image" as const, src: entry2, alt: "Statement Entryway - Detail" },
       // { type: "video" as const, src: entryVid1, alt: "Statement Entryway - Walk-through" },
     ],
-    reverse: false,
+    reverse: true,
   },
 ];
 
